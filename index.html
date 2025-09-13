@@ -1,0 +1,1770 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Savy Astrosams</title>
+  <meta name="description"
+    content="Savy Astrosams — Vedic astrology, readings, remedies, gemstones and cosmic insights." />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ----------------------------------------
+       Variables & resets
+       ---------------------------------------- */
+    :root {
+      --bg-1: #0f1724;
+      --accent1: #7c3aed;
+      /* purple */
+      --accent2: #06b6d4;
+      /* cyan */
+      --accent3: #f59e0b;
+      /* gold */
+      --glass: rgba(255, 255, 255, 0.06);
+      --glass-2: rgba(255, 255, 255, 0.04);
+      --text: #e6eef8;
+      --muted: rgba(230, 238, 248, 0.7);
+      --max-width: 1100px;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, rgba(3, 7, 18, 1) 0%, rgba(8, 10, 28, 1) 60%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    /* ----------------------------------------
+       Page layout + container
+       ---------------------------------------- */
+    .container {
+      width: 95%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 18px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .logo .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.12);
+      transform: rotate(0deg);
+    }
+
+    .logo .brand {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .logo .brand span:first-child {
+      font-weight: 800
+    }
+
+    .logo .brand span:last-child {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+
+    /* Desktop nav */
+    nav ul {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a.nav-link {
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 180ms ease;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav a.nav-link:hover {
+      color: var(--text);
+      transform: translateY(-3px)
+    }
+
+    .cta {
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, var(--accent3), #ff7ab6);
+      color: #081026;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.12);
+    }
+
+    /* Hamburger mobile */
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform .18s ease;
+    }
+
+    .hamburger:active {
+      transform: scale(.98)
+    }
+
+    /* ----------------------------------------
+       Hero / video background
+       ---------------------------------------- */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.55) contrast(1.05) saturate(1.1);
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 20px;
+      width: 100%;
+    }
+
+    .hero-card {
+      display: inline-block;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border-radius: 18px;
+      padding: 28px 34px;
+      box-shadow: 0 30px 80px rgba(2, 6, 23, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      max-width: 920px;
+      backdrop-filter: blur(6px);
+    }
+
+    h1.hero-title {
+      margin: 0 0 10px 0;
+      font-size: 28px;
+      letter-spacing: 0.2px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 900;
+      line-height: 1.02;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 18px
+    }
+
+    .scroll-indicator {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.9;
+    }
+
+    /* ----------------------------------------
+       Atomic sections
+       ---------------------------------------- */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 20px
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* About / services grid */
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      min-height: 120px;
+      transition: transform .28s cubic-bezier(.2, .9, .3, 1), box-shadow .28s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(10, 6, 30, 0.5)
+    }
+
+    .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 16px
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Blogs cards */
+    /* Horizontal slider wrappers */
+    .blog-slider,
+    .product-slider {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
+    }
+
+    .blog-slider::-webkit-scrollbar,
+    .product-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .blog-slider::-webkit-scrollbar-thumb,
+    .product-slider::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    /* Card sizing */
+    .blog-card,
+    .product {
+      min-width: 280px;
+      flex: 0 0 auto;
+    }
+
+    /* Hide scrollbar on mobile */
+    @media (max-width: 768px) {
+
+      .blog-slider,
+      .product-slider {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .blog-slider::-webkit-scrollbar,
+      .product-slider::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .blog-card {
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: var(--glass-2)
+    }
+
+    .blog-card .thumb {
+      height: 160px;
+      background: linear-gradient(135deg, #2b0f5d, #021834);
+    }
+
+    .blog-card .body {
+      padding: 14px
+    }
+
+    /* Gemstones cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text)
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent2), var(--accent1));
+      color: #021026
+    }
+
+    /* Testimonials slider basic */
+    .testimonial-slider {
+      display: flex;
+      gap: 20px;
+      /* space between cards */
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      /* optional for smooth snapping */
+      -webkit-overflow-scrolling: touch;
+      /* smooth scrolling on iOS */
+      padding-bottom: 10px;
+    }
+
+    .testimonial-slider::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .testimonial-slider::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
+    }
+
+    .t {
+      flex: 0 0 300px;
+      /* width of each testimonial card */
+      background: rgba(255, 255, 255, 0.05);
+      /* subtle card background */
+      border-radius: 12px;
+      padding: 20px;
+      scroll-snap-align: start;
+    }
+
+    #contact {
+      .icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+
+    }
+
+    /* Contact form */
+    .contact {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start
+    }
+
+    .contact form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .contact .info {
+      width: 320px;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--glass-2);
+      border: 1px solid rgba(255, 255, 255, 0.03)
+    }
+
+    input,
+    textarea,
+    select {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px;
+      border-radius: 8px;
+      color: var(--text);
+      outline: none
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(200, 220, 255, 0.25)
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      color: var(--muted)
+    }
+
+    /* ----------------------------------------
+       Rolling plants (floating animated elements)
+       ---------------------------------------- */
+    .plant {
+      position: fixed;
+      width: 56px;
+      height: 56px;
+      pointer-events: none;
+      z-index: 45;
+      transform-origin: center center;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 20px 30px rgba(2, 6, 23, 0.6));
+      opacity: 0.95;
+      will-change: transform, left, top;
+    }
+
+    /* keyframes for fast playful motion */
+    @keyframes floatFast1 {
+      0% {
+        transform: translateY(0) rotate(0) scale(1)
+      }
+
+      25% {
+        transform: translateY(-22px) rotate(25deg) scale(1.05)
+      }
+
+      50% {
+        transform: translateY(6px) rotate(-10deg) scale(.95)
+      }
+
+      75% {
+        transform: translateY(-14px) rotate(18deg) scale(1.06)
+      }
+
+      100% {
+        transform: translateY(0) rotate(0) scale(1)
+      }
+    }
+
+    @keyframes floatFast2 {
+      0% {
+        transform: translateX(0) rotate(0) scale(1)
+      }
+
+      25% {
+        transform: translateX(18px) rotate(-14deg) scale(1.05)
+      }
+
+      50% {
+        transform: translateX(-8px) rotate(11deg) scale(.95)
+      }
+
+      75% {
+        transform: translateX(20px) rotate(-10deg) scale(1.06)
+      }
+
+      100% {
+        transform: translateX(0) rotate(0) scale(1)
+      }
+    }
+
+    /* ----------------------------------------
+       Responsive
+       ---------------------------------------- */
+    @media (max-width: 980px) {
+
+      .grid,
+      .blog-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .logo .brand span:last-child {
+        display: none
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-wrap {
+        padding: 10px
+      }
+
+      nav ul {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .hero {
+        min-height: 76vh
+      }
+
+      h1.hero-title {
+        font-size: 20px
+      }
+
+      .hero-card {
+        padding: 20px
+      }
+
+      .container {
+        padding: 0 18px
+      }
+
+      .grid,
+      .blog-grid,
+      .product-grid {
+        grid-template-columns: 1fr
+      }
+
+      .contact {
+        flex-direction: column
+      }
+
+      .contact .info {
+        width: 100%
+      }
+    }
+
+    /* mobile slide menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 8, 14, 0.94), rgba(2, 3, 7, 0.98));
+      z-index: 90;
+      display: none;
+      padding: 40px 22px;
+      transition: all .28s;
+    }
+
+    .mobile-menu.open {
+      display: block
+    }
+
+    .mobile-menu nav {
+      margin-top: 20px
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
+      font-size: 18px;
+      color: var(--muted)
+    }
+
+    .mobile-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px
+    }
+
+    /* small utilities */
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .muted-bg {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 10px;
+      border-radius: 10px
+    }
+
+    .kicker {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #021026;
+      font-weight: 800
+    }
+
+    /* small fade / reveal helper classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all .8s cubic-bezier(.2, .9, .3, 1)
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* Container centers the boxes */
+    .policy-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Card style */
+    .policy-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 700px;
+      width: 100%;
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    /* Hover effect */
+    .policy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 215, 102, 0.3);
+      /* soft glow on hover */
+      border-color: rgba(255, 215, 102, 0.4);
+    }
+
+    /* Headings */
+    .policy-card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ffd966;
+      text-align: center;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Paragraphs */
+    .policy-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 15px;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+      .policy-card {
+        padding: 25px 20px;
+      }
+    }
+
+    /* Contact section container */
+    #contact {
+      padding: 40px 20px;
+      color: #fff;
+    }
+
+    /* Centered section title */
+    #contact .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #contact .kicker {
+      font-weight: 700;
+      color: #ffd966;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    #contact h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Contact cards container */
+    #contact .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Each contact info card */
+    #contact .info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      min-width: 220px;
+      max-width: 300px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    #contact .info:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 215, 102, 0.3);
+      border-color: rgba(255, 215, 102, 0.4);
+    }
+
+    /* Icon + text alignment inside contact */
+    #contact .muted {
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    #contact .muted .icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+      /* white icons */
+      transition: transform 0.3s ease;
+    }
+
+    #contact .muted .icon:hover {
+      transform: scale(1.2);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+      #contact .contact {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #contact .info {
+        width: 90%;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="nav-wrap">
+      <div class="logo">
+        <div class="icon" aria-hidden="true"> <img src="logo.jpeg"></div>
+        <div class="brand">
+          <span>Savy Astrosams</span>
+          <span>@savy_astrosams</span>
+        </div>
+      </div>
+
+
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+
+          <li><a class="nav-link" href="#gemstones">Gemstones</a></li>
+          <li><a class="nav-link" href="#rudraksh">Rudraksh</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+
+          <li><a class="nav-link" href="#privacy-section">Privacy Policy</a></li>
+
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+  <a class="cta" href="https://chatapp-production-889d.up.railway.app/login" id="bookNow">
+  Book Now
+</a>
+
+  <div class="hamburger" id="hamburger" aria-label="open menu">
+    <!-- simple animated hamburger -->
+    <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="22" height="2" rx="1" fill="white" opacity="0.9" />
+      <rect y="6" width="22" height="2" rx="1" fill="white" opacity="0.9" />
+      <rect y="12" width="22" height="2" rx="1" fill="white" opacity="0.9" />
+    </svg>
+  </div>
+</div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="icon"
+          style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center">
+          🔮</div>
+        <div>
+          <div style="font-weight:800">Savy Astrosams</div>
+          <div style="font-size:12px;color:var(--muted)">@savy_astrosams</div>
+        </div>
+      </div>
+      <div style="font-size:20px;cursor:pointer" id="mobileClose">✕</div>
+    </div>
+
+    <nav style="margin-top:28px">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+
+      <a href="#gemstones">Gemstones</a>
+      <a href="#rudraksh">Rudraksh</a>
+      <a href="#contact">Contact</a>
+      <a href="#privacy-section">Privacy Policy</a>
+
+
+
+    </nav>
+
+    <div class="mobile-socials">
+      <a class="muted-bg" href="https://instagram.com/savy_astrosams" target="_blank">Instagram</a>
+      <a class="muted-bg" href="https://x.com/savy_astrosams" target="_blank">X</a>
+      <a class="muted-bg" href="#" target="_blank">YouTube</a>
+      <a class="muted-bg" href="#" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main id="home">
+    <section class="hero" aria-label="Hero">
+      <!-- video background (replace path) -->
+      <video class="bg-video" autoplay muted loop playsinline>
+        <source src="space.mp4" type="video/mp4">
+        <!-- fallback image -->
+        <img src="" alt="space background" />
+      </video>
+
+      <div class="hero-overlay container">
+        <div class="hero-card reveal">
+          <div class="kicker">Cosmic • Vedic • Remedies</div>
+          <h1 class="hero-title">Welcome to Savy Astrosams : Your Cosmic Guide</h1>
+          <p class="lead">Personalised Vedic readings • Transit alerts • Remedies • Gemstones & more</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore Services</a>
+            <a class="btn btn-ghost" href="#blogs">Read Our Blogs</a>
+          </div>
+
+
+
+          <div class="scroll-indicator">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 5v14M5 12l7 7 7-7" />
+            </svg> Scroll to discover
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container">
+      <div class="section-title">
+        <div class="kicker">About</div>
+        <h2>Who we are</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Our Mission</h3>
+          <p>To bring authentic Vedic insight, practical remedies and cosmic narratives that help you move forward with
+            clarity and confidence.</p>
+        </div>
+        <div class="card reveal">
+    <h3>What You Get</h3>
+    <p>Clear answers to your questions, practical remedies, gemstone guidance, personalised consultation,
+      and insights that align with your life path.</p>
+  </div>
+        <div class="card reveal">
+          <h3>Why choose us</h3>
+          <p>Rooted in traditional techniques, presented with modern clarity remedies, gemstones, transit insights and
+            personalised consultations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="background:linear-gradient(180deg, rgba(8,6,24,1), rgba(6,8,16,0.98));">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Services</div>
+          <h2>Readings & Offerings</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card reveal">
+            <h3>Birth Chart (Janma Kundali)</h3>
+            <p>Detailed natal reading with dasa analysis, predictions, and remedies.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Transit Consultation</h3>
+            <p>Understand upcoming transits like Jupiter, Saturn & Rahu/Ketu and how to prepare.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Gemstone Guidance</h3>
+            <p>Personalised gemstone suggestions aligned with your chart and energies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOGS
+    <section id="blogs" class="container">
+  <div class="section-title">
+    <div class="kicker">Insights</div>
+    <h2>Blogs & Articles</h2>
+  </div>
+
+  <div class="blog-slider">
+    <article class="blog-card reveal">
+      <div class="thumb"></div>
+      <div class="body">
+        <h3 style="margin:0">Understanding Jupiter Transit 2025</h3>
+        <p class="muted">A practical look at what Jupiter's shift means for each sign.</p>
+        <div style="margin-top:10px"><a class="nav-link" href="#">Read more →</a></div>
+      </div>
+    </article>
+
+    <article class="blog-card reveal">
+      <div class="thumb"></div>
+      <div class="body">
+        <h3 style="margin:0">Gemstone Essentials — How to choose</h3>
+        <p class="muted">Quick guide to selecting authentic gemstones and using affiliate links safely.</p>
+        <div style="margin-top:10px"><a class="nav-link" href="#">Read more (coming soon) →</a></div>
+      </div>
+    </article>
+
+    <article class="blog-card reveal">
+      <div class="thumb"></div>
+      <div class="body">
+        <h3 style="margin:0">Sade Sati: Myths vs Reality</h3>
+        <p class="muted">Clearing misconceptions with examples and remedies.</p>
+        <div style="margin-top:10px"><a class="nav-link" href="#">Read more (coming soon) →</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+ -->
+    <!-- GEMSTONES / AFFILIATE -->
+    <section id="gemstones" style="background:linear-gradient(180deg, rgba(3,6,15,1), rgba(6,7,12,1));">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Shop</div>
+          <h2>Buy Gemstones (Purchase after consultation) </h2>
+        </div>
+
+        <div class="product-slider">
+          <!-- Sun - Ruby -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fdf1f1">
+              <img src="images/ruby.jpg" alt="Ruby" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Ruby (Manikya)</div>
+            <div class="muted">Gemstone for Sun; boosts confidence, authority & vitality.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/4mWR5Od" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹6,510</a>
+            </div>
+          </div>
+
+          <!-- Moon - Pearl -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f8f8f8">
+              <img src="images/pearl.jpg" alt="Pearl" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Pearl (Moti)</div>
+            <div class="muted">Gemstone for Moon; brings peace, calmness & emotional balance.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/466Ozh6" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹1,200</a>
+            </div>
+          </div>
+
+          <!-- Mars - Red Coral -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff0f0">
+              <img src="images/Red Coral.jpeg" alt="Red Coral" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Red Coral (Moonga)</div>
+            <div class="muted">Gemstone for Mars; gives courage, strength & energy.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/3IeNega" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹3,500</a>
+            </div>
+          </div>
+
+          <!-- Mercury - Emerald -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f0f9f0">
+              <img src="images/emerald.webp" alt="Emerald" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Emerald (Panna)</div>
+            <div class="muted">Gemstone for Mercury; helps intellect & communication.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/3HSC9l0" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹4,500</a>
+            </div>
+          </div>
+
+          <!-- Jupiter - Yellow Sapphire -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fffbe6">
+              <img src="images/spahhire.jpg" alt="Yellow Sapphire" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Yellow Sapphire (Pukhraj)</div>
+            <div class="muted">Gemstone for Jupiter; attracts wisdom, prosperity & growth.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/47A3Mtu" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹4,500</a>
+            </div>
+          </div>
+
+          <!-- Venus - Diamond -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f8f8f8">
+              <img src="images/opal.jpg" alt="Diamond" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">White Sapphire (Opal)</div>
+            <div class="muted">Gemstone for Venus; brings luxury, beauty & relationships.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/41MPmSZ" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹2,199</a>
+            </div>
+          </div>
+
+          <!-- Saturn - Blue Sapphire -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#e6f0ff">
+              <img src="images/blue.jpg" alt="Blue Sapphire" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Blue Sapphire (Neelam)</div>
+            <div class="muted">Gemstone for Saturn; grants discipline, focus & success.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/46heGSE" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹14,708</a>
+            </div>
+          </div>
+
+          <!-- Rahu - Hessonite -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff5f0">
+              <img src="images/hessonite.jpg" alt="Hessonite" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Hessonite (Gomed)</div>
+            <div class="muted">Gemstone for Rahu; removes confusion, protects from negativity.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/4pg0hic" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹1,800</a>
+            </div>
+          </div>
+
+          <!-- Ketu - Cat’s Eye -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff7f0">
+              <img src="images/cats.jpg" alt="Cat’s Eye" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">Cat’s Eye (Lehsunia)</div>
+            <div class="muted">Gemstone for Ketu; gives intuition, detachment & protection.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/3VbgLua" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost" href="#">₹1,200</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- RUDRAKSH -->
+    <section id="rudraksh" style="background:linear-gradient(180deg, rgba(3,6,15,1), rgba(6,7,12,1)); padding: 60px 0;">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Spiritual</div>
+          <h2>Buy Rudraksh </h2>
+        </div>
+
+        <div class="product-slider">
+
+
+          <!-- Rudraksh Card 1 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#8B4513">
+              <img src="images/1mukhi.jpg" alt="1 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">1 Mukhi Rudraksh</div>
+            <div class="muted">Symbol of Lord Shiva; bestows moksha & supreme power.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/41H2Q2O" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹499</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 2 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#A0522D">
+              <img src="images/2mukhi.jpg" alt="2 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">2 Mukhi Rudraksh</div>
+            <div class="muted">Brings harmony in relationships & balances emotions.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/4ghpYe3" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹2,000</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 3 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#D2691E">
+              <img src="images/3mukhi.jpg" alt="3 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">3 Mukhi Rudraksh</div>
+            <div class="muted">Destroys past karmas, enhances energy & confidence.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/4nlp6ay" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹799</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 4 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#CD853F">
+              <img src="images/4mukhi.jpg" alt="4 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">4 Mukhi Rudraksh</div>
+            <div class="muted">Improves intelligence, creativity & communication.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/47A3xyA" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹1,699</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 5 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#A0522D">
+              <img src="images/5mukhi.jpg" alt="5 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">5 Mukhi Rudraksh</div>
+            <div class="muted">Most common; brings peace, health & spiritual upliftment.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/4peOCA1" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹3,999</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 6 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#8B4513">
+              <img src="images/6mukhi.jpg" alt="6 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">6 Mukhi Rudraksh</div>
+            <div class="muted">Removes laziness, boosts courage & stability in life.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/4maRmMa" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹2,749</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 7 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#A0522D">
+              <img src="images/7mukhi.jpg" alt="7 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">7 Mukhi Rudraksh</div>
+            <div class="muted">Removes financial troubles, brings wealth & stability.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/3VGGg6K" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹1,999</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 8 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#D2691E">
+              <img src="images/8mukhi.jpg" alt="8 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">8 Mukhi Rudraksh</div>
+            <div class="muted">Removes obstacles, enhances willpower & success.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/3KewFBy" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹2,800</a>
+            </div>
+          </div>
+
+          <!-- Rudraksh Card 9 -->
+          <div class="product reveal">
+            <div
+              style="height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#CD853F">
+              <img src="images/9mukhi.jpg" alt="9 Mukhi Rudraksh" style="height:100%;object-fit:cover;">
+            </div>
+            <div style="font-weight:800">9 Mukhi Rudraksh</div>
+            <div class="muted">Gives energy of Goddess Durga, protects from negativity.</div>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center">
+              <a class="btn btn-primary" href="https://amzn.to/3Id8C5y" target="_blank">Buy on Amazon</a>
+              <a class="btn btn-ghost">₹10,000</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="container">
+      <div class="section-title">
+        <div class="kicker">Trust</div>
+        <h2>What clients say</h2>
+      </div>
+
+      <div class="testimonial-slider">
+        <div class="t reveal">
+          <p style="font-family:'Merriweather', serif; font-size:16px; font-weight:400; line-height:1.6;">
+            "You explained everything very clearly and realistically. Whatever you said is exactly what is happening in
+            my life. I truly appreciated your analysis. Thank you."
+          </p>
+        </div>
+
+        <div class="t reveal">
+          <p style="font-family:'Merriweather', serif; font-size:16px; font-weight:400; line-height:1.6;">
+            "Your guidance has helped me a lot. Your predictions were absolutely correct, and listening to your insights
+            brought me great happiness. You were very accurate."
+          </p>
+        </div>
+
+        <div class="t reveal">
+          <p style="font-family:'Merriweather', serif; font-size:16px; font-weight:400; line-height:1.6;">
+            "You are the best astrologer I have consulted so far. Your predictions have been the most accurate."
+          </p>
+        </div>
+
+        <div class="t reveal">
+          <p style="font-family:'Merriweather', serif; font-size:16px; font-weight:400; line-height:1.6;">
+            "Thank you for explaining everything in such detail. Everything you said was absolutely correct."
+          </p>
+        </div>
+
+        <div class="t reveal">
+          <p style="font-family:'Merriweather', serif; font-size:16px; font-weight:400; line-height:1.6;">
+            "It was really helpful that you gave me such a clear reading of my Kundali. Some things I already knew, and
+            you confirmed them so accurately. You also suggested remedies and answered my questions perfectly. Thank
+            you, Sir."
+          </p>
+        </div>
+
+        <div class="t reveal">
+          <p style="font-family:'Raleway', sans-serif; font-size:16px; font-weight:600;">
+            <a href="https://www.instagram.com/stories/highlights/18043010210299963/" target="_blank"
+              style="text-decoration:none; color:inherit;">
+              Click to see more feedbacks →
+            </a>
+          </p>
+        </div>
+      </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container">
+      <div class="section-title">
+        <div class="kicker">Contact</div>
+        <h2>E-mail | Follow | Subscribe </h2>
+      </div>
+
+      <div class="contact">
+
+        <div class="info reveal">
+          <div style="font-weight:800">Email</div>
+          <div class="muted" style="margin-top:8px">
+            <img src="images/email.jpg" alt="Email Icon" class="icon"> savyastrosams@gmail.com
+          </div>
+        </div>
+
+        <div class="info reveal">
+          <div style="font-weight:800"> Instagram</div>
+          <div class="muted" style="margin-top:8px">
+            <a href="https://www.instagram.com/savy_astrosams/reels/"> @savy_astrosams</a>
+          </div>
+        </div>
+
+        <div class="info reveal">
+          <div style="font-weight:800">X (Twitter)</div>
+          <div class="muted" style="margin-top:8px">
+            <a href="https://x.com/savy_astrosams"> @astrosavy </a>
+          </div>
+        </div>
+
+      </div>
+      <br>
+
+      <div class="contact">
+
+        <div class="info reveal">
+          <div style="font-weight:800">Facebook</div>
+          <div class="muted" style="margin-top:8px">
+            <a href="https://www.facebook.com/share/1BBCQ5Asbk/"> savyastro world </a>
+          </div>
+        </div>
+
+        <div class="info reveal">
+          <div style="font-weight:800">YouTube</div>
+          <div class="muted" style="margin-top:8px">
+            <a href="https://youtube.com/@astrosoulpatrika?si=ofoXuyMUmGtZTux1"> Astro Soul Patrika</a>
+          </div>
+        </div>
+
+        <div class="info reveal">
+          <div style="font-weight:800">Instagram</div>
+          <div class="muted" style="margin-top:8px">
+            <a href="https://www.instagram.com/dharmik_darpan/"> @dharmik_darpan</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="privacy-section">
+      <div class="policy-container">
+        <div class="policy-card">
+          <h2>Privacy Policy</h2>
+          <p>Your privacy is important to us at Savy Astrosams. We collect only the necessary information to improve
+            your experience. </p>
+          <p>We may use cookies to enhance site performance and user experience. No sensitive data is shared with third
+            parties without your consent.</p>
+          <p>By using our website, you agree to this privacy policy.</p>
+          <p>Prices of gemstones and Rudraksh may vary on the Amazon website.</p>
+        </div>
+
+        <div class="policy-card">
+          <h2>Disclaimer</h2>
+          <p>The content on Savy Astrosams is for informational and educational purposes only. Astrology predictions,
+            gemstones advice, and spiritual guidance are based on traditional practices and personal interpretation.</p>
+          <p>Thank You</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container"
+        style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="icon"
+            style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent3));display:flex;align-items:center;justify-content:center">
+            <img src="images/logo (2).png"></div>
+          <div>
+            <div style="font-weight:800">Savy Astrosams</div>
+            <div class="muted">Vedic Astrology • Remedies • Gemstones</div>
+          </div>
+        </div>
+
+        <div class="muted" style="text-align:right">© <span id="year"></span> Savy Astrosams — All Rights Reserved</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Rolling plant templates will be created via JS -->
+  <script>
+    // --------------------------
+    // Small utilities & initial UI
+    // --------------------------
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    });
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); mobileMenu.classList.remove('open'); }
+      });
+    });
+
+    // Reveal on scroll using IntersectionObserver
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          // optional: unobserve to keep performance
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+
+    // --------------------------
+    // Rolling Cosmic Plants
+    // --------------------------
+    // Config
+    const NUM_PLANTS = 9; // 9 planets
+
+    const plantSvgs = [
+      // Surya (Sun)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="gold" stop-opacity="1"/>
+         <stop offset="100%" stop-color="orange" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="20" fill="url(#sunGlow)" />
+   </svg>`,
+
+      // Chandra (Moon)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="white" stop-opacity="1"/>
+         <stop offset="100%" stop-color="silver" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="18" fill="url(#moonGlow)" />
+   </svg>`,
+
+      // Mangal (Mars)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="marsGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="red" stop-opacity="1"/>
+         <stop offset="100%" stop-color="darkred" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="18" fill="url(#marsGlow)" />
+   </svg>`,
+
+      // Budh (Mercury)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="mercuryGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="lightgreen" stop-opacity="1"/>
+         <stop offset="100%" stop-color="darkgreen" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="16" fill="url(#mercuryGlow)" />
+   </svg>`,
+
+      // Guru (Jupiter)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="jupiterGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="orange" stop-opacity="1"/>
+         <stop offset="100%" stop-color="brown" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="22" fill="url(#jupiterGlow)" />
+   </svg>`,
+
+      // Shukra (Venus)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="venusGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="pink" stop-opacity="1"/>
+         <stop offset="100%" stop-color="purple" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="16" fill="url(#venusGlow)" />
+   </svg>`,
+
+      // Shani (Saturn)
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="saturnGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="blue" stop-opacity="1"/>
+         <stop offset="100%" stop-color="black" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="20" fill="url(#saturnGlow)" />
+     <ellipse cx="32" cy="32" rx="28" ry="10" fill="none" stroke="lightblue" stroke-width="3"/>
+   </svg>`,
+
+      // Rahu
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="rahuGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="purple" stop-opacity="1"/>
+         <stop offset="100%" stop-color="black" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="18" fill="url(#rahuGlow)" />
+   </svg>`,
+
+      // Ketu
+      `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+       <radialGradient id="ketuGlow" cx="50%" cy="50%" r="50%">
+         <stop offset="0%" stop-color="white" stop-opacity="1"/>
+         <stop offset="100%" stop-color="red" stop-opacity="0"/>
+       </radialGradient>
+     </defs>
+     <circle cx="32" cy="32" r="18" fill="url(#ketuGlow)" stroke="red" stroke-dasharray="4"/>
+   </svg>`
+    ];
+
+
+
+    // create plant elements
+    function createPlant(i) {
+      const div = document.createElement('div');
+      div.className = 'plant';
+      // pick a random svg
+      div.innerHTML = plantSvgs[i % plantSvgs.length];
+      // random size a bit variable
+      const size = 36 + Math.floor(Math.random() * 50); // 36..86
+      div.style.width = size + 'px';
+      div.style.height = size + 'px';
+
+      // initial random position (within viewport)
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+      const left = Math.random() * (vw - size);
+      const top = Math.random() * (vh - size);
+      div.style.left = left + 'px';
+      div.style.top = top + 'px';
+
+      // random animation variation
+      const anim = (Math.random() > 0.5) ? 'floatFast1' : 'floatFast2';
+      const dur = 3 + Math.random() * 3; // 3..6s (fast & playful)
+      const delay = Math.random() * -5;
+      div.style.animation = `${anim} ${dur}s ease-in-out ${delay}s infinite`;
+
+      // random rotation initial
+      div.style.transform = `rotate(${Math.floor(Math.random() * 360)}deg)`;
+
+      document.body.appendChild(div);
+      return div;
+    }
+
+    // respawn/move plants periodically to create rolling effect
+    const plants = [];
+    for (let i = 0; i < NUM_PLANTS; i++) {
+      plants.push(createPlant(i));
+    }
+
+    // make them drift across screen randomly (fast play)
+    function driftPlants() {
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+      plants.forEach((p, idx) => {
+        // compute new positions based on sine wave + random jitter so they "roll"
+        const size = parseFloat(p.style.width);
+        const newLeft = Math.random() * (vw - size);
+        const newTop = Math.random() * (vh - size);
+        p.style.transition = `left ${2 + Math.random() * 2}s ease-in-out, top ${2 + Math.random() * 2}s ease-in-out`;
+        p.style.left = newLeft + 'px';
+        p.style.top = newTop + 'px';
+
+        // random rotate
+        p.style.transform = `rotate(${Math.floor(Math.random() * 720 - 360)}deg)`;
+      });
+    }
+
+    // drift frequently to keep playful movement
+    setInterval(driftPlants, 1800 + Math.random() * 1200);
+
+    // on resize, reposition quickly to avoid offscreen elements
+    window.addEventListener('resize', () => {
+      plants.forEach(p => {
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        const size = parseFloat(p.style.width);
+        const left = Math.min(parseFloat(p.style.left || 0), vw - size);
+        const top = Math.min(parseFloat(p.style.top || 0), vh - size);
+        p.style.left = Math.max(8, left) + 'px';
+        p.style.top = Math.max(8, top) + 'px';
+      });
+    });
+
+    // keep plants subtle on mobile to avoid clutter (reduce opacity & count)
+    function adjustForMobile() {
+      if (window.innerWidth < 720) {
+        plants.forEach((p, i) => {
+          if (i % 2 === 0) p.style.opacity = '0.6';
+          p.style.width = (parseFloat(p.style.width) * 0.75) + 'px';
+          p.style.height = (parseFloat(p.style.height) * 0.75) + 'px';
+        });
+      }
+    }
+    adjustForMobile();
+
+    // --------------------------
+    // small UI niceties
+    // --------------------------
+    // pause video on low-power devices? (simple heuristic)
+    try {
+      const video = document.querySelector('.bg-video');
+      if (navigator.connection && (navigator.connection.saveData || navigator.connection.effectiveType && navigator.connection.effectiveType.includes('2g'))) {
+        video.pause();
+      }
+    } catch (e) { }
+
+    // small optimization: remove plants when focusing textareas etc.
+    document.addEventListener('focusin', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        plants.forEach(p => p.style.visibility = 'hidden');
+      }
+    });
+    document.addEventListener('focusout', () => {
+      plants.forEach(p => p.style.visibility = 'visible');
+    });
+
+    // End of script
+  </script>
+
+
+</body>
+
+</html>
