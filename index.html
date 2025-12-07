@@ -51,7 +51,75 @@
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
-
+.astro-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #2b0b4a, #3a1078);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.astro-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('stars.png') repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.astro-section .container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  z-index: 2;
+}
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.section-instructions {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+.astro-btn {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #2b0b4a;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+.astro-btn:hover {
+  background-color: #ffec80;
+  transform: translateY(-3px);
+}
+.pdf-preview {
+  margin-top: 2rem;
+}
+.pdf-preview img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+}
     a {
       color: inherit;
       text-decoration: none
@@ -130,7 +198,92 @@
       font-weight: 600
     }
 
+.astro-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #2b0b4a, #3a1078);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
+/* Cosmic particles effect (subtle) */
+.astro-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('stars.png') repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Container */
+.astro-section .container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* Titles */
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Instructions */
+.section-instructions {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Button */
+.astro-btn {
+  display: inline-block;
+  background-color: #ffd700;
+  color: #2b0b4a;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.astro-btn:hover {
+  background-color: #ffec80;
+  transform: translateY(-3px);
+}
+
+/* PDF Preview */
+.pdf-preview {
+  margin-top: 2rem;
+}
+
+.pdf-preview img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+}
     /* Desktop nav */
     nav ul {
       display: flex;
@@ -894,8 +1047,8 @@
       </nav>
 
       <div style="display:flex;gap:12px;align-items:center">
-  <a class="cta" href="https://chatapp-production-889d.up.railway.app/login" id="bookNow">
-  Book Now
+  <a class="cta" href="https://www.instagram.com/savy_astrosams/" id="bookNow">
+  Book Consultation
 </a>
 
   <div class="hamburger" id="hamburger" aria-label="open menu">
@@ -951,11 +1104,7 @@
   <main id="home">
     <section class="hero" aria-label="Hero">
       <!-- video background (replace path) -->
-      <video class="bg-video" autoplay muted loop playsinline>
-        <source src="space.mp4" type="video/mp4">
-        <!-- fallback image -->
-        <img src="" alt="space background" />
-      </video>
+      
 
       <div class="hero-overlay container">
         <div class="hero-card reveal">
@@ -1400,6 +1549,7 @@
 
       </div>
 
+
     </section>
 
     <!-- CONTACT -->
@@ -1413,8 +1563,7 @@
 
         <div class="info reveal">
           <div style="font-weight:800">Email</div>
-          <div class="muted" style="margin-top:8px">
-            <img src="images/email.jpg" alt="Email Icon" class="icon"> savyastrosams@gmail.com
+          <div class="muted" style="margin-top:8px">savyastrosams@gmail.com
           </div>
         </div>
 
@@ -1443,13 +1592,14 @@
             <a href="https://www.facebook.com/share/1BBCQ5Asbk/"> savyastro world </a>
           </div>
         </div>
-
+<a href="https://www.youtube.com/channel/UCMshaE40005-wlmr7qNR61Q">
         <div class="info reveal">
+          
           <div style="font-weight:800">YouTube</div>
           <div class="muted" style="margin-top:8px">
-            <a href="https://youtube.com/@astrosoulpatrika?si=ofoXuyMUmGtZTux1"> Astro Soul Patrika</a>
-          </div>
-        </div>
+            <a href="https://www.youtube.com/channel/UCMshaE40005-wlmr7qNR61Q"> savy_astrosams</a>
+          </div> 
+        </div> </a>
 
         <div class="info reveal">
           <div style="font-weight:800">Instagram</div>
